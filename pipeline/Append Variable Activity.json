@@ -9,15 +9,50 @@
 				"userProperties": [],
 				"typeProperties": {
 					"variableName": "marks",
-					"value": "90"
+					"value": {
+						"value": "@pipeline().parameters.givemeinuttoappend",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Set variable",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Append variable",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "output",
+					"value": {
+						"value": "@variables('marks')",
+						"type": "Expression"
+					}
 				}
 			}
 		],
+		"parameters": {
+			"givemeinuttoappend": {
+				"type": "int"
+			}
+		},
 		"variables": {
 			"marks": {
 				"type": "Array",
 				"defaultValue": [
-					"[23,45,67,89]]"
+					23,
+					45,
+					67,
+					89
 				]
 			},
 			"output": {
