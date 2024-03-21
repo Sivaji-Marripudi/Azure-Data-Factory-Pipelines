@@ -1,0 +1,9 @@
+{
+	"name": "df-datafactory-mrk",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "1d88a257-4391-45cd-8821-ac3d25001e31",
+		"tenantId": "46439914-63b7-464e-8327-9b13737ae8cf"
+	}
+}
