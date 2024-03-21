@@ -567,7 +567,7 @@
 						"typeProperties": {
 							"variableName": "directory_name",
 							"value": {
-								"value": "@pipeline().RunId",
+								"value": "@formatDateTime(utcNow(), 'yyyy-MM-dd-HH-mm')",
 								"type": "Expression"
 							}
 						}
