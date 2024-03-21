@@ -1,0 +1,85 @@
+{
+	"name": "set variable activity - use case 1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Lookup activity",
+				"type": "Lookup",
+				"dependsOn": [
+					{
+						"activity": "Set variable activity",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"sqlReaderQuery": "select t.name as table_name, s.name as schema_name \nfrom sys.tables as t\njoin sys.schemas as s\non t.schema_id = s.schema_id\nwhere s.name = 'Production';",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "SqlServercopyalltables",
+						"type": "DatasetReference"
+					},
+					"firstRowOnly": false
+				}
+			},
+			{
+				"name": "Set variable activity",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "directory_name",
+					"value": {
+						"value": "@pipeline().RunId",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "For each activity",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "Lookup activity",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('Lookup activity').output.value",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"variables": {
+			"directory_name": {
+				"type": "String"
+			}
+		},
+		"folder": {
+			"name": "Control Flow Activities"
+		},
+		"annotations": []
+	}
+}
