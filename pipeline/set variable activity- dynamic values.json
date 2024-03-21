@@ -1,0 +1,94 @@
+{
+	"name": "set variable activity- dynamic values",
+	"properties": {
+		"activities": [
+			{
+				"name": "Length Variable",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "length",
+					"value": {
+						"value": "@pipeline().parameters.givemelength",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Breadth Variable",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "breadth",
+					"value": {
+						"value": "@pipeline().parameters.givemebreadth",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Area Variable",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Length Variable",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "Breadth Variable",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "area",
+					"value": {
+						"value": "@mul(variables('length'), variables('breadth'))",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"givemelength": {
+				"type": "int"
+			},
+			"givemebreadth": {
+				"type": "int"
+			}
+		},
+		"variables": {
+			"length": {
+				"type": "Integer"
+			},
+			"breadth": {
+				"type": "Integer"
+			},
+			"area": {
+				"type": "Integer"
+			}
+		},
+		"folder": {
+			"name": "Control Flow Activities"
+		},
+		"annotations": []
+	}
+}
