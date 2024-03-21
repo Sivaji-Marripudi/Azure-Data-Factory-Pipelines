@@ -1,0 +1,42 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "df-datafactory-mrk"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"AzureDatabricks_accessToken": {
+			"value": ""
+		},
+		"SqlServer_connectionString": {
+			"value": "Integrated Security=True;Data Source=localhost;Initial Catalog=AdventureWorks2017"
+		},
+		"SqlServer_password": {
+			"value": ""
+		},
+		"sourcedatafriends_accountKey": {
+			"value": ""
+		},
+		"targetdatafriends_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://myazuredatalakemrkproje.dfs.core.windows.net/"
+		},
+		"AzureDatabricks_properties_typeProperties_existingClusterId": {
+			"value": "0318-135321-20rhevtk"
+		},
+		"SqlServer_properties_typeProperties_userName": {
+			"value": "DESKTOP-D7G3HKE\\Sivaji Marripudi"
+		},
+		"sourcedatafriends_properties_typeProperties_url": {
+			"value": "https://myazuredatalakemrkproje.dfs.core.windows.net/"
+		},
+		"targetdatafriends_properties_typeProperties_url": {
+			"value": "https://myazuredatalakemrkproje.dfs.core.windows.net/"
+		}
+	}
+}
