@@ -8,6 +8,9 @@
 		"AzureDataLakeStorage1_accountKey": {
 			"value": ""
 		},
+		"AzureDataLakeStorage2_accountKey": {
+			"value": ""
+		},
 		"AzureDatabricks_accessToken": {
 			"value": ""
 		},
@@ -24,6 +27,9 @@
 			"value": ""
 		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://myazuredatalakemrkproje.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage2_properties_typeProperties_url": {
 			"value": "https://myazuredatalakemrkproje.dfs.core.windows.net/"
 		},
 		"AzureDatabricks_properties_typeProperties_existingClusterId": {
