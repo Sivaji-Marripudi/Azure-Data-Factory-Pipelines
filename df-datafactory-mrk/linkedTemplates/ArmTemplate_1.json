@@ -13,6 +13,22 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/SqlServercopyalltables')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "SqlServer",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "SqlServerTable",
+				"schema": [],
+				"typeProperties": {}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/SqlServerforalltables')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -265,6 +281,7 @@
 				"lastPublishTime": "2024-03-18T19:14:34Z"
 			},
 			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/SqlServercopyalltables')]",
 				"[concat(variables('factoryId'), '/datasets/SqlServerforalltables')]"
 			]
 		},
