@@ -1,0 +1,9 @@
+{
+	"name": "my-learning-development-datafactory",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "95b03339-5d83-4f84-aa52-4531c495fbb2",
+		"tenantId": "49e09f8a-e1a5-4437-883a-3c82898c6188"
+	}
+}
