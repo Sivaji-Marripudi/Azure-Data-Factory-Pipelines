@@ -1,0 +1,19 @@
+{
+	"name": "schedule_trigger_one",
+	"properties": {
+		"description": "wafastudies",
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 3,
+				"startTime": "2024-04-23T12:45:00",
+				"endTime": "2024-04-23T13:00:00",
+				"timeZone": "Eastern Standard Time"
+			}
+		}
+	}
+}
