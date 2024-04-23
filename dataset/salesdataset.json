@@ -1,0 +1,23 @@
+{
+	"name": "salesdataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage_sivajichowdary25",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Sales.csv",
+				"container": "mycontainer-one"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
